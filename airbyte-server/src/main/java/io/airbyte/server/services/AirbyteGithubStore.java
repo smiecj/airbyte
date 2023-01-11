@@ -28,12 +28,19 @@ public class AirbyteGithubStore {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(AirbyteGithubStore.class);
   private static final EnvConfigs envConfigs = new EnvConfigs();
-  private static final String GITHUB_BASE_URL = "https://raw.githubusercontent.com";
+  private static final String GITHUB_BASE_URL = "https://ghproxy.com/https://raw.githubusercontent.com";
   private static final String SOURCE_DEFINITION_LIST_LOCATION_PATH =
       "/airbytehq/airbyte/" + envConfigs.getGithubStoreBranch() + "/airbyte-config/init/src/main/resources/seed/source_definitions.yaml";
   private static final String DESTINATION_DEFINITION_LIST_LOCATION_PATH =
       "/airbytehq/airbyte/" + envConfigs.getGithubStoreBranch() + "/airbyte-config/init/src/main/resources/seed/destination_definitions.yaml";
-  private static final HttpClient httpClient = HttpClient.newHttpClient();
+
+  // gitee
+  // private static final String GITHUB_BASE_URL = "https://gitee.com";
+  // private static final String SOURCE_DEFINITION_LIST_LOCATION_PATH =
+  //     "/atamagaii/airbyte/raw/" + envConfigs.getGithubStoreBranch() + "/airbyte-config/init/src/main/resources/seed/source_definitions.yaml";
+  // private static final String DESTINATION_DEFINITION_LIST_LOCATION_PATH =
+  //     "/atamagaii/airbyte/raw/" + envConfigs.getGithubStoreBranch() + "/airbyte-config/init/src/main/resources/seed/destination_definitions.yaml";
+  // private static final HttpClient httpClient = HttpClient.newHttpClient();
 
   private final String baseUrl;
   private final Duration timeout;
